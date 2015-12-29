@@ -1,7 +1,9 @@
 <div id="content" class="container">
     <div id="listings" class="container">
-        <%= div_for(@places, :class => "listing container") do |place| %>
-            <%= render place %>
+        <% @places.each do |place| %>
+            <%= content_tag(:div, class: "place listing container", id: "place_#{place.id}", data: { price: place.price, rooms: place.rooms, bathrooms: place.bathrooms, for: place.for } ) do %>
+                <%= render place %>
+            <% end %>
         <% end %>
     </div>
     

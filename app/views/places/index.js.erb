@@ -1,6 +1,8 @@
-var content = '<%= j div_for(@places, :class => "listing container") { |place| render place } %>'
+var content = ''
 
-console.log(content);
+<% @places.each do |place| %>
+    content += '<%= j content_tag(:div, class: "place listing container", id: "place_#{place.id}", data: { price: place.price, rooms: place.rooms, bathrooms: place.bathrooms, for: place.for } ) { render place } %>'
+<% end %>
 
 $('#listings.container').append(content);
 
