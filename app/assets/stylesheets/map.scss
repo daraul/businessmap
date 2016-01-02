@@ -1,9 +1,16 @@
 #map.container {
-    height: 400px;
-    width: 100%;
-    
-    #map-canvas {
-        height: inherit;
+	height: 100%;
+	width: 100%;
+
+	#map-canvas {
+		height: inherit;
         width: inherit;
     }
+}
+
+#listing.container {
+	#map.container {
+	    height: 400px;
+	    width: 100%;
+	}
 }
