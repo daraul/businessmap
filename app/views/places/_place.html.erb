@@ -1,8 +1,8 @@
 <h1 class="address">
-    <% if params[:action] == "show" %>
-        <%= place.address %>
-    <% else %>
+    <% if defined?(linkify) && linkify == true %>
         <%= link_to(place.address, place) %>
+    <% else %>
+        <%= place.address %>
     <% end %>
 </h1>
 

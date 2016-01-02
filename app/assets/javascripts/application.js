@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require paloma
 //= require_tree .
 
 $(document).on('page:fetch', function() { NProgress.start(); });
@@ -25,4 +26,7 @@ $(document).on('page:change', function() { NProgress.done(); });
 
 $(document).on('ajaxComplete', function() { NProgress.done(); });
 
-$(document).on('page:restore', function() { NProgress.remove(); });
+$(document).on('page:restore', function() { 
+    NProgress.remove(); 
+    Paloma.executeHook();
+});

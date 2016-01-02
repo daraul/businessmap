@@ -7,10 +7,13 @@ class PlacesController < ApplicationController
     # GET /places.json
     def index
         @places = Place.search(params[:query]).filter(params).paginate(:page => params[:page], :per_page => 10)
-        
+
         respond_to do |format|
-            format.html 
-            format.js 
+            format.html do 
+                js :places => @places
+            end 
+
+            format.js
         end 
     end
     
@@ -21,6 +24,11 @@ class PlacesController < ApplicationController
     # GET /places/1
     # GET /places/1.json
     def show
+        respond_to do |format| 
+            format.html 
+
+            format.js 
+        end 
     end
     
     # GET /places/new

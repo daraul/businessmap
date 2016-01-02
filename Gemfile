@@ -19,6 +19,9 @@ gem 'jquery-rails'
 # Also get jquery UI 
 gem 'jquery-ui-rails'
 
+# Page specific javascript 
+gem 'paloma'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # This is to make turbolinks play nice with jquery 
