@@ -28,6 +28,16 @@ placesController.prototype.index = () ->
                 position: position
                 placeID: place.id 
             
+            marker.addListener('click', () ->
+                infoWindow.close()
+
+                $.getScript "places/#{this.placeID}", (response) ->
+                    console.log response
+                    infoWindow.setContent(response.replace(/[\\n"]/g, ""))
+
+                infoWindow.open(map, this)
+            )
+
             markers.push marker 
             
         map = new google.maps.Map(mapContainer, 
@@ -40,10 +50,3 @@ placesController.prototype.index = () ->
         
         for marker in markers 
             marker.setMap(map)
-
-            marker.addListener('click', () ->
-                $.getScript "places/#{this.placeID}", (response) ->
-                    infoWindow.setContent(response.replace(/[\\n]/g, ""))
-
-                    infoWindow.open(map, marker)
-            )
