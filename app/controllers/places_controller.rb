@@ -25,7 +25,9 @@ class PlacesController < ApplicationController
     # GET /places/1.json
     def show
         respond_to do |format| 
-            format.html 
+            format.html do 
+                js :place => @place 
+            end 
 
             format.js 
         end 
@@ -36,11 +38,15 @@ class PlacesController < ApplicationController
         @place = Place.new
         
         @pictures = @place.pictures
+
+        js :place => @place 
     end
     
     # GET /places/1/edit
     def edit
         @pictures = @place.pictures
+
+        js :place => @place 
     end
     
     # POST /places
